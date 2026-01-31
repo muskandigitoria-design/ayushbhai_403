@@ -7,19 +7,16 @@
 
 <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
 
-<!-- ✅ PRELOAD FONT FOR FAST LOAD -->
+<!-- FAST FONT LOAD -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-<!-- ✅ Tailwind CDN -->
+<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- ✅ Feather Icons (defer) -->
+<!-- Feather Icons -->
 <script defer src="https://unpkg.com/feather-icons"></script>
-
-<!-- ⚠️ Anime.js (defer, optional on mobile) -->
-<script defer src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
 
 <script>
 tailwind.config = {
@@ -34,112 +31,116 @@ tailwind.config = {
 </script>
 
 <style>
+/* BASE */
 body{
   font-family:'Inter',sans-serif;
   margin:0;
+  -webkit-font-smoothing:antialiased;
 }
 
-/* ✅ HIGH-CONTRAST GRID (FAST CSS) */
+/* LIGHT GRID (FAST) */
 .bg-grid{
   background-color:#050505;
   background-image:
-    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
-  background-size:32px 32px;
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size:28px 28px;
 }
 
-/* GLASS CARD */
+/* GLASS – GPU FRIENDLY */
 .glass{
-  background:rgba(10,20,10,.75);
-  border:1px solid rgba(250,204,21,.25);
-  backdrop-filter:blur(12px);
+  background:rgba(12,18,12,.85);
+  border:1px solid rgba(250,204,21,.22);
+  border-radius:14px;
 }
 
-/* ✅ Disable heavy effects for reduced motion (mobile users) */
+/* Disable animations if user wants */
 @media (prefers-reduced-motion: reduce){
-  *{
-    animation:none !important;
-    transition:none !important;
-  }
+  *{animation:none!important;transition:none!important;}
 }
 </style>
 </head>
 
-<body class="min-h-screen bg-grid text-white flex justify-center px-4">
+<body class="min-h-screen bg-grid text-white flex justify-center px-3">
 
-<div class="w-full max-w-md text-center py-10 space-y-7">
+<div class="w-full max-w-md text-center py-8 space-y-6">
 
   <!-- PROFILE -->
-  <div class="flex flex-col items-center space-y-4">
+  <div class="flex flex-col items-center space-y-3">
     <div class="rounded-full p-1 ring-4 ring-gold">
-      <img src="https://gogamex.fun/image/ayush%20(1).jpg"
-           width="96" height="96"
-           class="rounded-full object-cover"
-           loading="lazy">
+      <img
+        src="https://gogamex.fun/image/ayush%20(1).jpg"
+        width="96"
+        height="96"
+        class="rounded-full object-cover"
+        loading="lazy"
+        decoding="async"
+        alt="Ayush">
     </div>
 
-    <h1 class="text-2xl sm:text-3xl font-bold text-gold">
-      AYUSH CRICKET & TENNIS PREDICTION
+    <h1 class="text-xl sm:text-2xl font-bold text-gold leading-tight">
+      AYUSH CRICKET & TENNIS<br> PREDICTION
     </h1>
 
-    <div class="flex items-center gap-2 text-sm text-gold">
+    <div class="flex items-center gap-2 text-xs text-gold">
       <i data-feather="users" class="w-4 h-4"></i>
       <span>52k Active Members</span>
     </div>
 
     <div class="flex gap-2">
-      <span class="px-4 py-1 text-xs rounded-full bg-green-800">Elite Analyst</span>
-      <span class="px-4 py-1 text-xs rounded-full bg-red-800">Live Updates</span>
+      <span class="px-3 py-1 text-[11px] rounded-full bg-green-800">Elite Analyst</span>
+      <span class="px-3 py-1 text-[11px] rounded-full bg-red-800">Live Updates</span>
     </div>
   </div>
 
   <!-- STATS -->
-  <div class="grid grid-cols-3 gap-4">
-    <div class="glass rounded-xl p-4">
-      <div class="text-gold text-lg font-bold">52,430</div>
-      <div class="text-xs text-gray-300 mt-1">Subscribers</div>
+  <div class="grid grid-cols-3 gap-3">
+    <div class="glass p-3">
+      <div class="text-gold font-bold">52,430</div>
+      <div class="text-[11px] text-gray-300">Subscribers</div>
     </div>
-    <div class="glass rounded-xl p-4">
-      <div class="text-red-500 text-lg font-bold">98%</div>
-      <div class="text-xs text-gray-300 mt-1">Accuracy</div>
+    <div class="glass p-3">
+      <div class="text-red-500 font-bold">98%</div>
+      <div class="text-[11px] text-gray-300">Accuracy</div>
     </div>
-    <div class="glass rounded-xl p-4">
-      <div class="text-gold text-lg font-bold">4.9★</div>
-      <div class="text-xs text-gray-300 mt-1">Rating</div>
+    <div class="glass p-3">
+      <div class="text-gold font-bold">4.9★</div>
+      <div class="text-[11px] text-gray-300">Rating</div>
     </div>
   </div>
 
   <!-- CTA -->
   <a href="https://t.me/+rrqseOeJBq41ZThl" target="_blank"
      class="flex items-center justify-center gap-2 w-full py-4 rounded-xl
-            text-lg font-bold bg-gradient-to-r from-green-600 to-red-600
-            shadow-lg active:scale-95">
+            text-base font-bold
+            bg-gradient-to-r from-green-600 to-red-600
+            shadow-md active:scale-95 transition">
     <i data-feather="send"></i>
     Join Telegram Channel
   </a>
 
   <!-- TRUST -->
-  <div class="glass rounded-xl p-4 flex justify-between text-xs">
+  <div class="glass p-3 flex justify-between text-[11px]">
     <div class="flex flex-col items-center gap-1">
-      <i data-feather="check-circle" class="text-green-500"></i>Verified
+      <i data-feather="check-circle" class="text-green-500 w-4 h-4"></i>Verified
     </div>
     <div class="flex flex-col items-center gap-1">
-      <i data-feather="lock" class="text-yellow-400"></i>Secure
+      <i data-feather="lock" class="text-yellow-400 w-4 h-4"></i>Secure
     </div>
     <div class="flex flex-col items-center gap-1">
-      <i data-feather="trending-up" class="text-red-500"></i>Profitable
+      <i data-feather="trending-up" class="text-red-500 w-4 h-4"></i>Profit
     </div>
     <div class="flex flex-col items-center gap-1">
-      <i data-feather="star" class="text-gold"></i>Top Rated
+      <i data-feather="star" class="text-gold w-4 h-4"></i>Top
     </div>
   </div>
 
   <!-- FOOTER -->
-  <p class="text-xs text-gray-400">
-    © 2025 Ayush • Professional Cricket & Tennis Predictions
+  <p class="text-[11px] text-gray-400">
+    © 2025 Ayush • Professional Predictions
   </p>
 
-  <p class="text-[11px] text-gray-500">
+  <p class="text-[10px] text-gray-500">
     Ads managed by
     <a href="https://telegram.me/+TRlJl628l-FkMWE9"
        target="_blank"
@@ -150,26 +151,15 @@ body{
 
 </div>
 
+<!-- ICON INIT (LIGHT) -->
 <script>
-/* Feather icons */
 document.addEventListener("DOMContentLoaded",()=>{
   feather.replace();
-
-  /* ❌ Skip animation on small screens */
-  if(window.innerWidth > 768){
-    anime({
-      targets:'.glass',
-      opacity:[0,1],
-      translateY:[16,0],
-      delay:anime.stagger(120),
-      easing:'easeOutQuad'
-    });
-  }
 });
 </script>
 
-<!-- META PIXEL (UNCHANGED) -->
-<script>
+<!-- META PIXEL -->
+<script defer>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -179,7 +169,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1319461659052581');
-fbq('track', 'PageView', {uuid:'fcbf738a-78a1-43f5-90d0-bc078e12e117'});
+fbq('track','PageView');
 </script>
 
 <noscript>
@@ -188,4 +178,4 @@ src="https://www.facebook.com/tr?id=1319461659052581&ev=PageView&noscript=1"/>
 </noscript>
 
 </body>
-</html> 
+</html>
