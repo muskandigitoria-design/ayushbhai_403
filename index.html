@@ -7,7 +7,7 @@
 
 <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
 
-<!-- FAST FONT LOAD -->
+<!-- FAST FONT -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -31,32 +31,26 @@ tailwind.config = {
 </script>
 
 <style>
-/* BASE */
 body{
   font-family:'Inter',sans-serif;
   margin:0;
   -webkit-font-smoothing:antialiased;
 }
 
-/* LIGHT GRID (FAST) */
+/* FAST GRID BACKGROUND */
 .bg-grid{
   background-color:#050505;
   background-image:
-    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
   background-size:28px 28px;
 }
 
-/* GLASS – GPU FRIENDLY */
+/* FAST CARD (NO BLUR) */
 .glass{
-  background:rgba(12,18,12,.85);
+  background:rgba(12,18,12,.9);
   border:1px solid rgba(250,204,21,.22);
   border-radius:14px;
-}
-
-/* Disable animations if user wants */
-@media (prefers-reduced-motion: reduce){
-  *{animation:none!important;transition:none!important;}
 }
 </style>
 </head>
@@ -79,7 +73,7 @@ body{
     </div>
 
     <h1 class="text-xl sm:text-2xl font-bold text-gold leading-tight">
-      AYUSH CRICKET & TENNIS<br> PREDICTION
+      AYUSH CRICKET & TENNIS<br>PREDICTION
     </h1>
 
     <div class="flex items-center gap-2 text-xs text-gold">
@@ -151,14 +145,12 @@ body{
 
 </div>
 
-<!-- ICON INIT (LIGHT) -->
+<!-- ICON INIT -->
 <script>
-document.addEventListener("DOMContentLoaded",()=>{
-  feather.replace();
-});
+document.addEventListener("DOMContentLoaded",()=>{feather.replace();});
 </script>
 
-<!-- META PIXEL -->
+<!-- META PIXEL (DEFER = FAST) -->
 <script defer>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -168,7 +160,7 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1319461659052581');
+fbq('init','1319461659052581');
 fbq('track','PageView');
 </script>
 
